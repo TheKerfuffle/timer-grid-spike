@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 
-function Timer(props) {
+function Timer() {
 
     let [time, setTime] = useState(3595);
     // let [toggleRunning, setToggleRunning] = useState(false);
@@ -24,7 +24,7 @@ function Timer(props) {
         // setToggleRunning(false);
     }
 
-    const formatTime = () => {
+    const renderTime = () => {
         const getSeconds = `0${(time % 60)}`.slice(-2);
         const minutes = `${Math.floor(time / 60)}`;
         const getMinutes = `0${minutes % 60}`.slice(-2);
@@ -33,10 +33,9 @@ function Timer(props) {
         return `${getHours} : ${getMinutes} : ${getSeconds}`;
       }
 
-
     return (
         <>
-            <h3>{formatTime()}</h3>
+            <h3>{renderTime()}</h3>
             <button onClick={startTimer}>Start</button>
             <button onClick={stopTimer}>Stop</button>
             <button onClick={resetTimer}>Reset</button>
