@@ -1,23 +1,42 @@
+import { useRef, useState } from "react";
 
 
 function Timer(props) {
 
+    let [time, setTime] = useState(3595);
+    // let [toggleRunning, setToggleRunning] = useState(false);
+    const countRef = useRef(null);
+
     function startTimer() {
-        console.log('Start');
+        // setToggleRunning(true);
+        countRef.current = setInterval(() => {
+            setTime((time) => time + 1)
+          }, 1000)
     }
 
     function stopTimer() {
-        console.log('Stop');
+        clearInterval(countRef.current);
+        // setToggleRunning(false)
     }
 
     function resetTimer() {
-        console.log('Reset');
+        setTime(0);
+        // setToggleRunning(false);
     }
+
+    const formatTime = () => {
+        const getSeconds = `0${(time % 60)}`.slice(-2);
+        const minutes = `${Math.floor(time / 60)}`;
+        const getMinutes = `0${minutes % 60}`.slice(-2);
+        const getHours = `0${Math.floor(time / 3600)}`.slice(-2);
+    
+        return `${getHours} : ${getMinutes} : ${getSeconds}`;
+      }
 
 
     return (
         <>
-            <h3>Timer goes here</h3>
+            <h3>{formatTime()}</h3>
             <button onClick={startTimer}>Start</button>
             <button onClick={stopTimer}>Stop</button>
             <button onClick={resetTimer}>Reset</button>
