@@ -19,6 +19,7 @@ function Timer1() {
 
     function stopTimer() {
         clearInterval(countRef.current);
+        dispatch({type: 'SET_TIMER', payload: time})
         // setToggleRunning(false)
     }
 

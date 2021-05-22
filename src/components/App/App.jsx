@@ -2,13 +2,13 @@ import React from 'react';
 import Grid from '../Grid/Grid';
 import Nav from '../Nav/Nav';
 import Timer from '../Timer/Timer';
-import TimerFromReducer from '../TimerFromReducer/TimerFromReducer';
+// import TimerFromReducer from '../TimerFromReducer/TimerFromReducer';
 import './App.css';
 import {
   HashRouter as Router,
   Route,
-  Redirect,
-  Switch,
+  /*Redirect,
+  Switch,*/
 } from 'react-router-dom';
 import Timer3 from '../Timer3/Timer3';
 import Timer2 from '../Timer2/Timer2';
