@@ -10,7 +10,7 @@ import postTimer from './postTimer.saga';
 // the registration triggers a login
 // and login triggers setting the user
 export default function* rootSaga() {
-  yield takeEvery('SET_TIMER', postTimer);
+  yield takeEvery('POST_TIMER', postTimer);
 //   yield all([
 //   ]);
 }

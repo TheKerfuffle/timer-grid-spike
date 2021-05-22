@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 
-function Timer() {
+function TimerFromReducer() {
 
-    let [time, setTime] = useState(3595);
+    let timerReducer = useSelector(store=> store.timer);
+    let [time, setTime]  = useState(timerReducer);
+    const dispatch = useDispatch();
     // let [toggleRunning, setToggleRunning] = useState(false);
     const countRef = useRef(null);
 
@@ -11,7 +14,7 @@ function Timer() {
         // setToggleRunning(true);
         countRef.current = setInterval(() => {
             setTime((time) => time + 1)
-          }, 1000);
+        }, 1000);
     }
 
     function stopTimer() {
@@ -21,6 +24,7 @@ function Timer() {
 
     function resetTimer() {
         setTime(0);
+        dispatch({type: 'SET_TIMER', payload: time})
         // setToggleRunning(false);
     }
 
@@ -29,12 +33,13 @@ function Timer() {
         const minutes = `${Math.floor(time / 60)}`;
         const getMinutes = `0${minutes % 60}`.slice(-2);
         const getHours = `0${Math.floor(time / 3600)}`.slice(-2);
-    
+
         return `${getHours} : ${getMinutes} : ${getSeconds}`;
-      }
+    }
 
     return (
         <>
+            <h3>REDUCER TIMER</h3>
             <h3>{renderTime()}</h3>
             <button onClick={startTimer}>Start</button>
             <button onClick={stopTimer}>Stop</button>
@@ -43,4 +48,4 @@ function Timer() {
     )
 }
 
-export default Timer;
+export default TimerFromReducer;
