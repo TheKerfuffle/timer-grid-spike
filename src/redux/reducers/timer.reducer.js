@@ -1,4 +1,4 @@
-const timer = (state = {}, action) => {
+const timer = (state = 3595, action) => {
     switch (action.type) {
         case 'SET_ITEMS':
             return action.payload;
