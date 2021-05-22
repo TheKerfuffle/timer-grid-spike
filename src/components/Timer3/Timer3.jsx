@@ -19,13 +19,18 @@ function Timer3() {
 
     function stopTimer() {
         clearInterval(countRef.current);
+        dispatch({type: 'SET_TIMER', payload: time});
         // setToggleRunning(false)
     }
 
     function resetTimer() {
         setTime(0);
-        dispatch({type: 'SET_TIMER', payload: time})
+        dispatch({type: 'SET_TIMER', payload: 0});
         // setToggleRunning(false);
+    }
+
+    function saveTimer() {
+        dispatch({type: 'SET_TIMER', payload: time});
     }
 
     const renderTime = () => {
@@ -44,6 +49,7 @@ function Timer3() {
             <button onClick={startTimer}>Start</button>
             <button onClick={stopTimer}>Stop</button>
             <button onClick={resetTimer}>Reset</button>
+            <button onClick={saveTimer}>Save</button>
         </>
     )
 }
