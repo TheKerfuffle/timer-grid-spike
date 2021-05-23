@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import GridElement from '../GridElement/GridElement'
 import './Grid.css';
 
 function Grid(props) {
@@ -17,25 +18,22 @@ function Grid(props) {
         );
     }, [])
 
-
-
-
     return (
         <>
             <table>
                 <thead>
                     <tr>
                         <th>
-                            5
+                            1
                         </th>
                         <th>
-                            5
+                            2
                         </th>
                         <th>
-                            5
+                            3
                         </th>
                         <th>
-                            5
+                            4
                         </th>
                         <th>
                             5
@@ -48,9 +46,7 @@ function Grid(props) {
 
                             {
                                 item.map((thing, j) => (
-                                    <td key={j}>
-                                        {thing}
-                                    </td>
+                                    <GridElement key={j} id={j} thing={thing}/>
                                 ))
                             }
                             </tr>

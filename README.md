@@ -12,4 +12,4 @@ Grid element
 
     This has been a tough challenge. Nonograms need data to populate a large grid and the puzzle app I plan to build will do need to store an individual user's progress on a puzzle as well. I can get a layout I am happy with, however I need to find a way to get the vertical and horizontal tabs to show their data as well without having to store said data.
     
-    Next I plan next to try and manipulate the color of the boxes created on right and left click.
+    Next I plan next to try and manipulate the color of the boxes created on click.
